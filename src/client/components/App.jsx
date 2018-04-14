@@ -4,7 +4,11 @@ const App = () => {
   return (
     <div>
       <h1>moja strona</h1>
-      <form action=""></form>
+      <form action='/submit'>
+        <label htmlFor='firstName'>First Name</label>
+        <input type='text' name='firstName'/>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 }

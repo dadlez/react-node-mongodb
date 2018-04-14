@@ -1,9 +1,20 @@
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
+  mode: 'development',
   entry: './src/client/index.js',
   output: { filename: 'bundle.js' },
   devServer: {
-    contentBase: 'dist/',
-    watchContentBase: true
+    hot: true,
+    host: 'localhost',
+    port: 3000,
+    proxy: {
+      '/': {
+        target: 'http://localhost:8080/',
+        secure: false
+      }
+    }
   },
   module: {
     rules: [
@@ -18,5 +29,11 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/client/index.html'
+    })
+  ]
 };

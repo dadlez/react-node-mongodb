@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
+import Input from './Input.jsx';
 
-const App = () => {
+export default () => {
+  console.log('app')
   return (
-    <div>
+    <div style={{width: '500px'}}>
       <h1>moja strona</h1>
       <form action='/submit'>
-        <label htmlFor='firstName'>First Name</label>
-        <input type='text' name='firstName'/>
-        <button type="submit">Submit</button>
+        <Input type='text' label='Name'/>
+        <Input type='email' label='Email'/>
+        <Input type='submit'/>
       </form>
     </div>
   );
 }
-
-export default App;
